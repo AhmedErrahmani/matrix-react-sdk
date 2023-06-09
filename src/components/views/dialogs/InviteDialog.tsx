@@ -1329,7 +1329,6 @@ export default class InviteDialog extends React.PureComponent<Props, IInviteDial
             extraSection = (
                 <div className="mx_InviteDialog_section_hidden_suggestions_disclaimer">
                     <span>{_t("Some suggestions may be hidden for privacy.")}</span>
-                    <p>{_t("If you can't see who you're looking for, send them your invite link below.")}</p>
                 </div>
             );
             const link = makeUserPermalink(MatrixClientPeg.get().getUserId()!);
@@ -1493,7 +1492,6 @@ export default class InviteDialog extends React.PureComponent<Props, IInviteDial
                 <div className="error">{this.state.errorText}</div>
                 {onlyOneThreepidNote}
                 {results}
-                {footer}
             </React.Fragment>
         );
 
