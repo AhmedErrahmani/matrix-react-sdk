@@ -40,6 +40,8 @@ enum RegistrationField {
     Email = "field_email",
     PhoneNumber = "field_phone_number",
     Username = "field_username",
+    Prenom = "field_prenom",
+    Nom = "field_nom",
     Password = "field_password",
     PasswordConfirm = "field_password_confirm",
 }
@@ -60,6 +62,8 @@ interface IProps {
     defaultPhoneCountry?: string;
     defaultPhoneNumber?: string;
     defaultUsername?: string;
+    defaultPrenom?: string;
+    defaultNome?: string;
     defaultPassword?: string;
     flows: {
         stages: string[];
@@ -99,6 +103,8 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
     private [RegistrationField.Password]: Field | null = null;
     private [RegistrationField.PasswordConfirm]: Field | null = null;
     private [RegistrationField.Username]: Field | null = null;
+    private [RegistrationField.Prenom]: Field | null = null;
+    private [RegistrationField.Nom]: Field | null = null;
     private [RegistrationField.PhoneNumber]: Field | null = null;
 
     public static defaultProps = {
@@ -113,6 +119,8 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
             fieldValid: {},
             phoneCountry: this.props.defaultPhoneCountry,
             username: this.props.defaultUsername || "",
+            prenom: this.props.defaultPrenom || "",
+            nom: this.props.defaultNom || "",
             email: this.props.defaultEmail || "",
             phoneNumber: this.props.defaultPhoneNumber || "",
             password: this.props.defaultPassword || "",
@@ -167,7 +175,7 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
         const email = this.state.email.trim();
 
         const promise = this.props.onRegisterClick({
-            username: this.state.username.trim(),
+            username: this.state.prenom.trim() + "_" + this.state.nom.trim(),
             password: this.state.password.trim(),
             email: email,
             phoneCountry: this.state.phoneCountry,
@@ -533,6 +541,38 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
         );
     }
 
+public renderPrenom(): ReactNode {
+        return (
+            <Field
+                id="mx_RegistrationForm_prenom"
+                ref={(field) => (this[RegistrationField.Prenom] = field)}
+                type="text"
+                autoFocus={true}
+                label={_t("Prenom")}
+                placeholder={_t("Prenom").toLocaleLowerCase()}
+                value={this.state.prenom}
+                onChange={this.onUsernameChange}
+                onValidate={this.onUsernameValidate}
+            />
+        );
+    }
+
+    public renderNom(): ReactNode {
+        return (
+            <Field
+                id="mx_RegistrationForm_nom"
+                ref={(field) => (this[RegistrationField.Nom] = field)}
+                type="text"
+                autoFocus={true}
+                label={_t("Nom")}
+                placeholder={_t("Nom").toLocaleLowerCase()}
+                value={this.state.nom}
+                onChange={this.onUsernameChange}
+                onValidate={this.onUsernameValidate}
+            />
+        );
+    }
+
     public render(): ReactNode {
         const registerButton = (
             <input className="mx_Login_submit" type="submit" value={_t("Register")} disabled={!this.props.canSubmit} />
@@ -558,14 +598,14 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
         return (
             <div>
                 <form onSubmit={this.onSubmit}>
-                    <div className="mx_AuthBody_fieldRow">{this.renderUsername()}</div>
+                    <div className="mx_AuthBody_fieldRow">{this.renderEmail()}</div>
+                    <div className="mx_AuthBody_fieldRow">
+                        {this.renderPrenom()}
+                        {this.renderNom()}
+                    </div>
                     <div className="mx_AuthBody_fieldRow">
                         {this.renderPassword()}
                         {this.renderPasswordConfirm()}
-                    </div>
-                    <div className="mx_AuthBody_fieldRow">
-                        {this.renderEmail()}
-                        {this.renderPhoneNumber()}
                     </div>
                     {emailHelperText}
                     {registerButton}
