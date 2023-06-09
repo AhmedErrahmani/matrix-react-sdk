@@ -74,6 +74,8 @@ interface IProps {
 
     onRegisterClick(params: {
         username: string;
+        prenom: string;
+        nom: string;
         password: string;
         email?: string;
         phoneCountry?: string;
@@ -88,6 +90,8 @@ interface IState {
     // The ISO2 country code selected in the phone number entry
     phoneCountry?: string;
     username: string;
+    prenom: string;
+    nom: string;
     email: string;
     phoneNumber: string;
     password: string;
@@ -200,6 +204,8 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
 
         const fieldIDsInDisplayOrder = [
             RegistrationField.Username,
+            RegistrationField.Prenom,
+            RegistrationField.Nom,
             RegistrationField.Password,
             RegistrationField.PasswordConfirm,
             RegistrationField.Email,
@@ -357,9 +363,30 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
         });
     };
 
+    private onPrenomChange = (ev: React.ChangeEvent<HTMLInputElement>): void => {
+        this.setState({
+            prenom: ev.target.value,
+        });
+    };
+   private onNomChange = (ev: React.ChangeEvent<HTMLInputElement>): void => {
+        this.setState({
+            nom: ev.target.value,
+        });
+    };
+
     private onUsernameValidate = async (fieldState: IFieldState): Promise<IValidationResult> => {
         const result = await this.validateUsernameRules(fieldState);
         this.markFieldValid(RegistrationField.Username, !!result.valid);
+        return result;
+    };
+    private onPrenomValidate = async (fieldState: IFieldState): Promise<IValidationResult> => {
+        const result = await this.validateUsernameRules(fieldState);
+        this.markFieldValid(RegistrationField.Prenom, !!result.valid);
+        return result;
+    };
+    private onNomValidate = async (fieldState: IFieldState): Promise<IValidationResult> => {
+        const result = await this.validateUsernameRules(fieldState);
+        this.markFieldValid(RegistrationField.Nom, !!result.valid);
         return result;
     };
 
@@ -551,8 +578,8 @@ public renderPrenom(): ReactNode {
                 label={_t("Prenom")}
                 placeholder={_t("Prenom").toLocaleLowerCase()}
                 value={this.state.prenom}
-                onChange={this.onUsernameChange}
-                onValidate={this.onUsernameValidate}
+                onChange={this.onPrenomChange}
+                onValidate={this.onPrenomValidate}
             />
         );
     }
@@ -567,8 +594,8 @@ public renderPrenom(): ReactNode {
                 label={_t("Nom")}
                 placeholder={_t("Nom").toLocaleLowerCase()}
                 value={this.state.nom}
-                onChange={this.onUsernameChange}
-                onValidate={this.onUsernameValidate}
+                onChange={this.onNomChange}
+                onValidate={this.onNomValidate}
             />
         );
     }
