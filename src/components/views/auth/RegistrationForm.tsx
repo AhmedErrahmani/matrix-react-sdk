@@ -543,15 +543,13 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
             if (this.showPhoneNumber()) {
                 emailHelperText = (
                     <div>
-                        {_t("Add an email to be able to reset your password.")}{" "}
-                        {_t("Use email or phone to optionally be discoverable by existing contacts.")}
+                        {"Utiliez votre e-mail Professionnel. \n"}{" "}
                     </div>
                 );
             } else {
                 emailHelperText = (
                     <div>
-                        {_t("Add an email to be able to reset your password.")}{" "}
-                        {_t("Use email to optionally be discoverable by existing contacts.")}
+                        {"Utiliez votre e-mail Professionnel. \n"}{" "}
                     </div>
                 );
             }
