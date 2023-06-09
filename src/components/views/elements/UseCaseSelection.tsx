@@ -61,11 +61,6 @@ export function UseCaseSelection({ onFinished }: Props): JSX.Element {
             </div>
             <div className="mx_UseCaseSelection_options mx_UseCaseSelection_slideInDelayed">
                 <UseCaseSelectionButton
-                    useCase={UseCase.PersonalMessaging}
-                    selected={selection === UseCase.PersonalMessaging}
-                    onClick={setSelected}
-                />
-                <UseCaseSelectionButton
                     useCase={UseCase.WorkMessaging}
                     selected={selection === UseCase.WorkMessaging}
                     onClick={setSelected}
