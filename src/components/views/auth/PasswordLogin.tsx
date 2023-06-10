@@ -286,7 +286,8 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
                         autoComplete="email"
                         type="email"
                         key="email_input"
-                        placeholder="joe@example.com"
+                        label={"E-mail Professionnel"}
+                        placeholder={"E-mail Professionnel".toLocaleLowerCase()}
                         value={this.props.username}
                         onChange={this.onUsernameChanged}
                         onBlur={this.onUsernameBlur}
@@ -392,35 +393,12 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
         const autoFocusPassword = !this.isLoginEmpty();
         const loginField = this.renderLoginField(this.state.loginType, !autoFocusPassword);
 
-        let loginType;
-        if (!SdkConfig.get().disable_3pid_login) {
-            loginType = (
-                <div className="mx_Login_type_container">
-                    <label className="mx_Login_type_label">{_t("Sign in with")}</label>
-                    <Field
-                        element="select"
-                        value={this.state.loginType}
-                        onChange={this.onLoginTypeChange}
-                        disabled={this.props.busy}
-                    >
-                        <option key={LoginField.MatrixId} value={LoginField.MatrixId}>
-                            {_t("Username")}
-                        </option>
-                        <option key={LoginField.Email} value={LoginField.Email}>
-                            {_t("Email address")}
-                        </option>
-                        <option key={LoginField.Password} value={LoginField.Password}>
-                            {_t("Phone")}
-                        </option>
-                    </Field>
-                </div>
-            );
-        }
+        let loginType = LoginField.Email;
+        
 
         return (
             <div>
                 <form onSubmit={this.onSubmitForm}>
-                    {loginType}
                     {loginField}
                     <Field
                         id="mx_LoginForm_password"
