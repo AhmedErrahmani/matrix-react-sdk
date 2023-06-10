@@ -15,8 +15,8 @@ limitations under the License.
 */
 
 export enum UseCase {
-    PersonalMessaging = "PersonalMessaging",
-    WorkMessaging = "WorkMessaging",
-    CommunityMessaging = "CommunityMessaging",
+    PersonalMessaging = "Les Deux Cas",
+    WorkMessaging = "Équipe Interne",
+    CommunityMessaging = "Écosystème public",
     Skip = "Skip",
 }
