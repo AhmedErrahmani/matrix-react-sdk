@@ -70,6 +70,11 @@ export function UseCaseSelection({ onFinished }: Props): JSX.Element {
                     selected={selection === UseCase.CommunityMessaging}
                     onClick={setSelected}
                 />
+                <UseCaseSelectionButton
+                    useCase={UseCase.PersonalMessaging}
+                    selected={selection === UseCase.PersonalMessaging}
+                    onClick={setSelected}
+                />
             </div>
             <div className="mx_UseCaseSelection_skip mx_UseCaseSelection_slideInDelayed">
                 <AccessibleButton kind="link" onClick={async () => setSelected(UseCase.Skip)}>
