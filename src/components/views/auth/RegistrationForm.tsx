@@ -486,7 +486,7 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
         if (!this.showEmail()) {
             return null;
         }
-        const emailLabel = this.authStepIsRequired("m.login.email.identity") ? _td("Email") : _td("Email (optional)");
+        const emailLabel = this.authStepIsRequired("m.login.email.identity") ? "E-mail Professionnel" : _td("Email (optional)");
         return (
             <EmailField
                 fieldRef={(field) => (this[RegistrationField.Email] = field)}
@@ -610,13 +610,13 @@ public renderPrenom(): ReactNode {
             if (this.showPhoneNumber()) {
                 emailHelperText = (
                     <div>
-                        {"Utiliez votre e-mail Professionnel. \n"}{" "}
+                        {"Utilisez Votre E-mail Professionnel. \n"}{" "}
                     </div>
                 );
             } else {
                 emailHelperText = (
                     <div>
-                        {"Utiliez votre e-mail Professionnel. \n"}{" "}
+                        {"Utilisez Votre E-mail Professionnel. \n"}{" "}
                     </div>
                 );
             }
