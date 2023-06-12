@@ -393,7 +393,7 @@ export default class PasswordLogin extends React.PureComponent<IProps, IState> {
         const autoFocusPassword = !this.isLoginEmpty();
         const loginField = this.renderLoginField(this.state.loginType, !autoFocusPassword);
 
-        let loginType = LoginField.Email;
+        this.state.loginType = LoginField.Email;
         
 
         return (
