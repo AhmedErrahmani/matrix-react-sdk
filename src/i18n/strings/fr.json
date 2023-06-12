@@ -1684,7 +1684,7 @@
     "Data on this screen is shared with %(widgetDomain)s": "Les données sur cet écran sont partagées avec %(widgetDomain)s",
     "Modal Widget": "Fenêtre de widget",
     "Invite someone using their name, username (like <userId/>) or <a>share this room</a>.": "Invitez quelqu’un à partir de son nom, pseudo (comme <userId/>) ou <a>partagez ce salon</a>.",
-    "Start a conversation with someone using their name or username (like <userId/>).": "Commencer une conversation privée avec quelqu’un via son nom, prenom, email ou organisme public.",
+    "Start a conversation with someone using their name or username (like <userId/>).": "Commencer une conversation privée avec quelqu’un via son Nom, Prenom, E-mail ou organisme Public.",
     "Send feedback": "Envoyer un commentaire",
     "PRO TIP: If you start a bug, please submit <debugLogsLink>debug logs</debugLogsLink> to help us track down the problem.": "CONSEIL : si vous rapportez un bug, merci d’envoyer <debugLogsLink>les journaux de débogage</debugLogsLink> pour nous aider à identifier le problème.",
     "Please view <existingIssuesLink>existing bugs on Github</existingIssuesLink> first. No match? <newIssueLink>Start a new one</newIssueLink>.": "Merci de regarder d’abord les <existingIssuesLink>bugs déjà répertoriés sur Github</existingIssuesLink>. Pas de résultat ? <newIssueLink>Rapportez un nouveau bug</newIssueLink>.",
