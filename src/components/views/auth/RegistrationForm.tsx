@@ -579,7 +579,6 @@ public renderPrenom(): ReactNode {
                 placeholder={_t("Prenom").toLocaleLowerCase()}
                 value={this.state.prenom}
                 onChange={this.onPrenomChange}
-                onValidate={this.onPrenomValidate}
             />
         );
     }
@@ -595,7 +594,6 @@ public renderPrenom(): ReactNode {
                 placeholder={_t("Nom").toLocaleLowerCase()}
                 value={this.state.nom}
                 onChange={this.onNomChange}
-                onValidate={this.onNomValidate}
             />
         );
     }
