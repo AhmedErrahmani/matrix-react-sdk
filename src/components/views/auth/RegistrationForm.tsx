@@ -180,7 +180,7 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
         let username1 = this.state.prenom.trim() + "_" + this.state.nom.trim();
  
         const promise = this.props.onRegisterClick({
-            username: username1.replace(/ /g, "_"),
+            username: username1.replace(/ /g, "_").toLowerCase(),
             password: this.state.password.trim(),
             email: email,
             phoneCountry: this.state.phoneCountry,
