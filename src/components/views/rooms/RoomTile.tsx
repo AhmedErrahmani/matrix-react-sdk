@@ -419,8 +419,6 @@ export class RoomTile extends React.PureComponent<ClassProps, State> {
             <div className="mx_RoomTile_titleContainer">
                 <div title={name} className={titleClasses} tabIndex={-1}>
                     <span dir="auto">{name}</span>
-                    <span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span style="font-size: 12px; color: green;">"DGSSI"</span>
                 </div>
                 {subtitle}
             </div>
