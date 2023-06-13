@@ -382,13 +382,12 @@ export class RoomTile extends React.PureComponent<ClassProps, State> {
         });
 
         let name = this.props.room.name;
+        let organisme = ' ';
         if (name.includes('[')) {
             const parts = name.split('['); 
-            const name = parts[0].trim(); 
+            let name = parts[0].trim(); 
             let organisme = parts[1].replace(']', '');
-        } else {
-            let organisme = '';
-        };
+        }
         if (typeof name !== "string") name = "";
         name = name.replace(":", ":\u200b"); // add a zero-width space to allow linewrapping after the colon
 
