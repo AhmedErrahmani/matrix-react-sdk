@@ -177,9 +177,10 @@ export default class RegistrationForm extends React.PureComponent<IProps, IState
         PosthogAnalytics.instance.setAuthenticationType("Password");
 
         const email = this.state.email.trim();
-
+        let username1 = this.state.prenom.trim() + "_" + this.state.nom.trim();
+ 
         const promise = this.props.onRegisterClick({
-            username: this.state.prenom.trim() + "_" + this.state.nom.trim(),
+            username: username1.replace(/ /g, "_"),
             password: this.state.password.trim(),
             email: email,
             phoneCountry: this.state.phoneCountry,
