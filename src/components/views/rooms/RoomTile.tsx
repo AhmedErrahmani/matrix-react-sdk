@@ -427,7 +427,7 @@ export class RoomTile extends React.PureComponent<ClassProps, State> {
                 <div title={name} className={titleClasses} tabIndex={-1}>
                     <span dir="auto">{name}</span>
                     <span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-                    <span style="font-size: 12px; color: green;">{organisme}</span></div>
+                    <span style="font-size: 12px; color: green;">{organisme}</span>
                 </div>
                 {subtitle}
             </div>
