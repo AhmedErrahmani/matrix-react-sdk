@@ -382,6 +382,13 @@ export class RoomTile extends React.PureComponent<ClassProps, State> {
         });
 
         let name = this.props.room.name;
+        if (name.includes('[')) {
+            const parts = name.split('['); 
+            const name = parts[0].trim(); 
+            let organisme = parts[1].replace(']', '');
+        } else {
+            let organisme = '';
+        };
         if (typeof name !== "string") name = "";
         name = name.replace(":", ":\u200b"); // add a zero-width space to allow linewrapping after the colon
 
@@ -419,6 +426,8 @@ export class RoomTile extends React.PureComponent<ClassProps, State> {
             <div className="mx_RoomTile_titleContainer">
                 <div title={name} className={titleClasses} tabIndex={-1}>
                     <span dir="auto">{name}</span>
+                    <span >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span style="font-size: 12px; color: green;">{organisme}</span></div>
                 </div>
                 {subtitle}
             </div>
